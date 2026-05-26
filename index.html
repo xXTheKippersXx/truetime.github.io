@@ -62,10 +62,13 @@
   .row{display:flex;justify-content:space-between;gap:14px}
   .row b{color:var(--dim);font-weight:400}
   .tap{color:var(--dim);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
-  /* manual location sheet */
+  /* manual location sheet — opaque base tied to the live sky colour so the whole
+     screen (incl. the home-indicator safe area) dims uniformly with no band */
   #sheet{position:fixed;inset:0;z-index:9;display:none;align-items:center;justify-content:center;
-         background:rgba(4,5,14,.74);backdrop-filter:blur(8px)}
+         background:var(--sky-bot);transition:background 1.6s linear}
+  #sheet::before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(8px)}
   #sheet.on{display:flex}
+  #sheet .card{position:relative;z-index:1}
   .card{width:min(86vw,360px);background:rgba(20,22,40,.94);border:1px solid rgba(255,255,255,.12);
         border-radius:18px;padding:22px 20px;box-shadow:0 18px 60px rgba(0,0,0,.6)}
   .card h2{font-family:var(--serif);font-style:italic;font-weight:400;font-size:20px;margin-bottom:6px}
