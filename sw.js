@@ -1,5 +1,5 @@
 /* Solar Clock — offline cache. Bump CACHE to force an update. */
-const CACHE = 'solar-clock-v2';
+const CACHE = 'solar-clock-v3';
 const ASSETS = [
   './',
   './index.html',
